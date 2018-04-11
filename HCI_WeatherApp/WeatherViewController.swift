@@ -12,6 +12,10 @@ class WeatherViewController: UIViewController {
     @IBOutlet var currentTemperature: UILabel!
     @IBOutlet var todayMin: UILabel!
     @IBOutlet var todayMax: UILabel!
+    @IBOutlet var cityNameLabel: UILabel!
+    
+    var cityName : String?
+    var cityID: String?
     
     var dayTimeLabels = [UILabel]()
     var dayTemperatureLabels = [UILabel]()
@@ -37,6 +41,10 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let name = cityName {
+            cityNameLabel.text = name
+        }
         
         currentTemperature.text = "21°"
         todayMin.text = "today's min: 17°"
