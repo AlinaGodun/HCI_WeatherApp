@@ -12,12 +12,24 @@ class APIManager {
     let forecastRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?"
     let APPID = "f3487ce5aa5d51af154844e2d24c94f8"
     
-    var weatherData: [String: [WeatherState]] = [:]
-    
-    init() {
+    func getMockData (forCities cities: [City]) -> [String: [WeatherState]] {
+        var weatherData = [String: [WeatherState]]()
+        
+        if let mockDataFilePath = Bundle.main.path(forResource: "mockData", ofType: ".txt") {
+            if let mockContents = try? String(contentsOfFile: mockDataFilePath) {
+                let json = JSON(parseJSON: mockContents)
+                let weatherStates = parse(json: json)
+                
+                for city in cities {
+                    weatherData[city.id] = weatherStates
+                }
+            }
+        }
+        
+        return weatherData
     }
     
-    func loadWeatherData(forCities cities: [City]) -> [String: [WeatherState]] {
+    func getWeatherData(forCities cities: [City]) -> [String: [WeatherState]] {
         var weatherData = [String: [WeatherState]]()
         
         for city in cities {
@@ -40,28 +52,22 @@ class APIManager {
         for data in json["list"].arrayValue {
             let dt = NSDate(timeIntervalSince1970: data["dt"].doubleValue)
             
-            let main = data["main"]
-            let temperature = main["temp"].doubleValue
-            let temperatureMin = main["temp_min"].doubleValue
-            let temperatureMax = main["temp_max"].doubleValue
+            let temperature = data["main"]["temp"].doubleValue
+            let temperatureMin = data["main"]["temp_min"].doubleValue
+            let temperatureMax = data["main"]["temp_max"].doubleValue
+            let humidity = data["main"]["humidity"].intValue
             
-            let weather = data["weather"]
-            let weatherDescription = weather["main"].stringValue
-            let humidity = weather["humidity"].intValue
-            let cloudiness = weather["cloudiness"].intValue
+            let weather = data["weather"].arrayValue
+            let weatherDescription = weather[0]["description"].stringValue
             
-            let wind = data["wind"]
-            let windSpeed = wind["speed"].doubleValue
+            let cloudiness = data["clouds"]["all"].intValue
+            let windSpeed = data["wind"]["speed"].doubleValue
             
             let currentState = WeatherState(time: dt, weatherDescr: weatherDescription, temp: temperature, tempMin: temperatureMin, tempMax: temperatureMax, hum: humidity, clouds: cloudiness, windSpeed: windSpeed)
-            print(currentState)
+            
             weatherStates.append(currentState)
         }
         
         return weatherStates
-    }
-    
-    func getWeatherData(forCity city: City) -> [WeatherState]? {
-        return weatherData[city.id];
     }
 }
