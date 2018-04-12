@@ -9,7 +9,7 @@
 import Foundation
 
 struct WeatherState : CustomStringConvertible {
-    var time: NSDate
+    var date: Date
     var weatherDescription: String
     
     var temperature: Double
@@ -21,14 +21,14 @@ struct WeatherState : CustomStringConvertible {
     var windSpeed: Double
     
     var description: String {
-        let description = String("Time: \(time) \nWeather description: \(weatherDescription)")
-        let temp = String("Temperature: \(temperature) \nMinimal temperature: \(temperatureMin) \nMaximal temperature:  \(temperatureMax)")
+        let description = String("Date: \(date) \nWeather description: \(weatherDescription)\n")
+        let temp = String("Temperature: \(temperature) \nMinimal temperature: \(temperatureMin) \nMaximal temperature:  \(temperatureMax)\n")
         let other = String("Humidity: \(humidity) \nCloudiness: \(cloudiness) \nWind speed: \(windSpeed)")
         
         return description + temp + other
     }
     
-    init(time _time: NSDate,
+    init(date _date: Date,
          weatherDescr _weatherDescription: String,
          temp _temperature: Double,
          tempMin _temperatureMin: Double,
@@ -36,7 +36,7 @@ struct WeatherState : CustomStringConvertible {
          hum _humidity: Int,
          clouds _cloudiness: Int,
          windSpeed _windSpeed: Double) {
-        time = _time
+        date = _date
         weatherDescription = _weatherDescription
         
         temperature = _temperature
