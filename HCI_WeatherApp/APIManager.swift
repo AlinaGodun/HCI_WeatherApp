@@ -50,7 +50,7 @@ class APIManager {
         var weatherStates = [WeatherState]()
         
         for data in json["list"].arrayValue {
-            let dt = NSDate(timeIntervalSince1970: data["dt"].doubleValue)
+            let dt = Date(timeIntervalSince1970: data["dt"].doubleValue)
             
             let temperature = data["main"]["temp"].doubleValue
             let temperatureMin = data["main"]["temp_min"].doubleValue
@@ -63,7 +63,7 @@ class APIManager {
             let cloudiness = data["clouds"]["all"].intValue
             let windSpeed = data["wind"]["speed"].doubleValue
             
-            let currentState = WeatherState(time: dt, weatherDescr: weatherDescription, temp: temperature, tempMin: temperatureMin, tempMax: temperatureMax, hum: humidity, clouds: cloudiness, windSpeed: windSpeed)
+            let currentState = WeatherState(date: dt, weatherDescr: weatherDescription, temp: temperature, tempMin: temperatureMin, tempMax: temperatureMax, hum: humidity, clouds: cloudiness, windSpeed: windSpeed)
             
             weatherStates.append(currentState)
         }

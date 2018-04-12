@@ -19,7 +19,6 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "YAWA by Alina Godun, 01569197"
-        weatherData = apiManager.loadWeatherData(forCities: cities)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,8 +27,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let cityName = String(cities[indexPath.row].name)
-        cell.textLabel?.text = cityName
+        cell.textLabel?.text = cities[indexPath.row].name
         return cell
     }
     
