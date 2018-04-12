@@ -20,8 +20,8 @@ class WeatherViewController: UIViewController {
     var dayTimeLabels = [UILabel]()
     var dayTemperatureLabels = [UILabel]()
     
-    var dayTimes = ["Now", "20:00", "23:00", "02:00", "05:00", "08:00", "11:00"]
-    var dayTemperatures = ["23", "20", "18", "18", "19", "21", "22"]
+    var dayTimes = ["Now", "20:00", "23:00", "02:00", "05:00", "08:00"]
+    var dayTemperatures = ["23", "20", "18", "18", "19", "21"]
     
     //    var dayTimes = [String]()
     //    var dayTemperatures = [String]()
@@ -30,10 +30,10 @@ class WeatherViewController: UIViewController {
     var weekTemperatureLabels = [UILabel]()
     var weekMinMaxLabels = [UILabel]()
     
-    let weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    var weekTemperature = ["23", "14", "18", "19", "22", "20", "18"]
-    var weekMin = ["15", "14", "17", "17", "20", "17", "13"]
-    var weekMax = ["29", "21", "32", "20", "22", "21", "19"]
+    let weekDays = ["Today", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    var weekTemperature = ["23", "14", "18", "19", "22", "20"]
+    var weekMin = ["15", "14", "17", "17", "20", "17"]
+    var weekMax = ["29", "21", "32", "20", "22", "21"]
     
     //    var weekTemperatures = [String]()
     //    var weekMins = [String]()
@@ -104,7 +104,7 @@ class WeatherViewController: UIViewController {
         
         if (weekTemperatureLabels.count == weekTemperature.count) {
             for i in 0 ..< weekTemperatureLabels.count {
-                weekTemperatureLabels[i].text = weekTemperature[i]
+                weekTemperatureLabels[i].text = weekTemperature[i] + "°"
             }
         }
         
