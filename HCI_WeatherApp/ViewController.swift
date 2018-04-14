@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "YAWA by Alina Godun, 01569197"
+//        weatherData = apiManager.getWeatherData(forCities: cities)
         weatherData = apiManager.getMockData(forCities: cities)
     }
 

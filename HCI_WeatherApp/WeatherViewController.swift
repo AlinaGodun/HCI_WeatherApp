@@ -42,18 +42,14 @@ class WeatherViewController: UIViewController {
     
     //This method gathers view's labels into arrays
     func mapLabelsToArrays() {
-        for sb in view.subviews where sb.tag == 1001 {
-            for subview in sb.subviews {
+            for subview in view.subviews where subview.tag == 1001 {
                 let label = subview as! UILabel
                 dayTimeLabels.append(label)
-            }
         }
-        
-        for sb in view.subviews where sb.tag == 1002 {
-            for subview in sb.subviews {
+    
+        for subview in view.subviews where subview.tag == 1002 {
                 let label = subview as! UILabel
                 dayTemperatureLabels.append(label)
-            }
         }
         
         for subview in view.subviews where subview.tag == 1003 {
@@ -61,18 +57,14 @@ class WeatherViewController: UIViewController {
             weekDaysLabels.append(label)
         }
         
-        for sb in view.subviews where sb.tag == 1004 {
-            for subview in sb.subviews {
+        for subview in view.subviews where subview.tag == 1004 {
                 let label = subview as! UILabel
                 weekTemperatureLabels.append(label)
-            }
         }
-        
-        for sb in view.subviews where sb.tag == 1005 {
-            for subview in sb.subviews  {
+    
+        for subview in view.subviews where subview.tag == 1005 {
                 let label = subview as! UILabel
                 weekMinMaxLabels.append(label)
-            }
         }
     }
     
@@ -130,7 +122,7 @@ class WeatherViewController: UIViewController {
         let weekMax = weatherManager?.getWeekTemperatures(forTemperatureType: .max)
         if weekTemperatureLabels.count == weekMin?.count && weekTemperatureLabels.count == weekMax?.count{
             for i in 0 ..< weekTemperatureLabels.count {
-                weekTemperatureLabels[i].text = String("\(weekMin![i])° | \(weekMax![i])°")
+                weekMinMaxLabels[i].text = String("\(weekMin![i])° | \(weekMax![i])°")
             }
         }
     }
