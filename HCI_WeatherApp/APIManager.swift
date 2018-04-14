@@ -12,6 +12,7 @@ class APIManager {
     let forecastRequestUrl = "https://api.openweathermap.org/data/2.5/forecast?"
     let APPID = "f3487ce5aa5d51af154844e2d24c94f8"
     
+    //This method returns mock data used for testing.
     func getMockData (forCities cities: [City]) -> [String: [WeatherState]] {
         var weatherData = [String: [WeatherState]]()
         
@@ -29,11 +30,12 @@ class APIManager {
         return weatherData
     }
     
+    //This method makes api call and gets weather data.
     func getWeatherData(forCities cities: [City]) -> [String: [WeatherState]] {
         var weatherData = [String: [WeatherState]]()
         
         for city in cities {
-            let urlString = "\(forecastRequestUrl)id=\(city.id)&APPID=\(APPID)"
+            let urlString = "\(forecastRequestUrl)id=\(city.id)&APPID=\(APPID)&units=metric"
             
             if let url = URL(string: urlString) {
                 if let data = try? String(contentsOf: url) {
@@ -46,6 +48,7 @@ class APIManager {
         return weatherData
     }
     
+    //This method parses json into weatherState
     func parse(json: JSON) -> [WeatherState] {
         var weatherStates = [WeatherState]()
         

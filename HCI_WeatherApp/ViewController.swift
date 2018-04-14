@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "YAWA by Alina Godun, 01569197"
+        weatherData = apiManager.getMockData(forCities: cities)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,8 +34,10 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let wvc = storyboard?.instantiateViewController(withIdentifier: "Weather") as? WeatherViewController {
-            wvc.cityID = cities[indexPath.row].id
+            let cityID = cities[indexPath.row].id
+            wvc.cityID = cityID
             wvc.cityName = cities[indexPath.row].name
+            wvc.weatherManager = WeatherManager(forStates: weatherData[cityID]!)
             navigationController?.pushViewController(wvc, animated: true)
         }
     }

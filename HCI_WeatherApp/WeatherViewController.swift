@@ -14,57 +14,46 @@ class WeatherViewController: UIViewController {
     @IBOutlet var todayMax: UILabel!
     @IBOutlet var cityNameLabel: UILabel!
     
+    var weatherManager: WeatherManager?
     var cityName : String?
     var cityID: String?
     
     var dayTimeLabels = [UILabel]()
     var dayTemperatureLabels = [UILabel]()
     
-    var dayTimes = ["Now", "20:00", "23:00", "02:00", "05:00", "08:00"]
-    var dayTemperatures = ["23", "20", "18", "18", "19", "21"]
-    
-    //    var dayTimes = [String]()
-    //    var dayTemperatures = [String]()
-    
     var weekDaysLabels = [UILabel]()
     var weekTemperatureLabels = [UILabel]()
     var weekMinMaxLabels = [UILabel]()
     
-    let weekDays = ["Today", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    var weekTemperature = ["23", "14", "18", "19", "22", "20"]
-    var weekMin = ["15", "14", "17", "17", "20", "17"]
-    var weekMax = ["29", "21", "32", "20", "22", "21"]
-    
-    //    var weekTemperatures = [String]()
-    //    var weekMins = [String]()
-    //    var weekMaxs = [String]()
+    let weekDaysNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let name = cityName {
-            cityNameLabel.text = name
-        }
+        cityNameLabel.text = cityName
         
-        currentTemperature.text = "21°"
-        todayMin.text = "today's min: 17°"
-        todayMax.text = "today's max: 23°"
+        currentTemperature.text = "\(Int(round((weatherManager?.currentState.temperature)!)))°"
+        todayMin.text = "today's min: \(Int(round((weatherManager?.currentState.temperatureMin)!)))°"
+        todayMax.text = "today's min: \(Int(round((weatherManager?.currentState.temperatureMax)!)))°"
 
         mapLabelsToArrays()
-        fillLabels()
-        print("good")
-        // Do any additional setup after loading the view.
+        initialize()
     }
     
+    //This method gathers view's labels into arrays
     func mapLabelsToArrays() {
-        for subview in view.subviews where subview.tag == 1001 {
-            let label = subview as! UILabel
-            dayTimeLabels.append(label)
+        for sb in view.subviews where sb.tag == 1001 {
+            for subview in sb.subviews {
+                let label = subview as! UILabel
+                dayTimeLabels.append(label)
+            }
         }
         
-        for subview in view.subviews where subview.tag == 1002 {
-            let label = subview as! UILabel
-            dayTemperatureLabels.append(label)
+        for sb in view.subviews where sb.tag == 1002 {
+            for subview in sb.subviews {
+                let label = subview as! UILabel
+                dayTemperatureLabels.append(label)
+            }
         }
         
         for subview in view.subviews where subview.tag == 1003 {
@@ -72,45 +61,76 @@ class WeatherViewController: UIViewController {
             weekDaysLabels.append(label)
         }
         
-        for subview in view.subviews where subview.tag == 1004 {
-            let label = subview as! UILabel
-            weekTemperatureLabels.append(label)
+        for sb in view.subviews where sb.tag == 1004 {
+            for subview in sb.subviews {
+                let label = subview as! UILabel
+                weekTemperatureLabels.append(label)
+            }
         }
         
-        for subview in view.subviews where subview.tag == 1005 {
-            let label = subview as! UILabel
-            weekMinMaxLabels.append(label)
+        for sb in view.subviews where sb.tag == 1005 {
+            for subview in sb.subviews  {
+                let label = subview as! UILabel
+                weekMinMaxLabels.append(label)
+            }
         }
     }
     
-    func fillLabels() {
-        if (dayTimeLabels.count == dayTimes.count) {
-            for i in 0 ..< dayTimeLabels.count {
-                dayTimeLabels[i].text = dayTimes[i]
+    //This method and it's derived once initialize labels with computed values
+    func initialize() {
+        initializeDayTimes()
+        initializeDayTemperatures()
+        initializeWeekDays()
+        initializeWeekTemperatures()
+        initializeWeekMinMax()
+    }
+    
+    func initializeDayTimes() {
+        let times = weatherManager?.getDayTimes()
+        if (dayTimeLabels.count == times?.count) {
+            dayTimeLabels[0].text = "Now"
+            for i in 1 ..< dayTimeLabels.count {
+                let time = (times![i] < 10 ? "0" : "") + "\(times![i]):00"
+                dayTimeLabels[i].text = String("\(time)")
             }
         }
-        
-        if (dayTemperatureLabels.count == dayTemperatures.count) {
+    }
+    
+    func initializeDayTemperatures() {
+        let temperatures = weatherManager?.getDayTemperatures()
+        if (dayTemperatureLabels.count == temperatures?.count) {
             for i in 0 ..< dayTemperatureLabels.count {
-                dayTemperatureLabels[i].text = dayTemperatures[i] + "°"
+                dayTemperatureLabels[i].text = String("\(temperatures![i])°")
             }
         }
-        
-        if (weekDaysLabels.count == weekDays.count) {
-            for i in 0 ..< weekDaysLabels.count {
-                weekDaysLabels[i].text = weekDays[i]
+    }
+    
+    func initializeWeekDays() {
+        let weekDays = weatherManager?.getWeekDays()
+        if (weekDaysLabels.count == weekDays?.count) {
+            weekDaysLabels[0].text = "Today"
+            for i in 1 ..< weekDaysLabels.count {
+                weekDaysLabels[i].text = String("\(weekDaysNames[weekDays![i]])")
             }
         }
-        
-        if (weekTemperatureLabels.count == weekTemperature.count) {
+    }
+    
+    func initializeWeekTemperatures() {
+        let weekTemperatures = weatherManager?.getWeekTemperatures(forTemperatureType: .middle)
+        if weekTemperatureLabels.count == weekTemperatures?.count {
             for i in 0 ..< weekTemperatureLabels.count {
-                weekTemperatureLabels[i].text = weekTemperature[i] + "°"
+                let weekTemp = String("\(weekTemperatures![i])°")
+                weekTemperatureLabels[i].text = weekTemp
             }
         }
-        
-        if (weekMinMaxLabels.count == weekMin.count && weekMin.count == weekMax.count) {
-            for i in 0 ..< weekMinMaxLabels.count {
-                weekMinMaxLabels[i].text = weekMin[i]  + "° | " + weekMax[i] + "°"
+    }
+    
+    func initializeWeekMinMax() {
+        let weekMin = weatherManager?.getWeekTemperatures(forTemperatureType: .min)
+        let weekMax = weatherManager?.getWeekTemperatures(forTemperatureType: .max)
+        if weekTemperatureLabels.count == weekMin?.count && weekTemperatureLabels.count == weekMax?.count{
+            for i in 0 ..< weekTemperatureLabels.count {
+                weekTemperatureLabels[i].text = String("\(weekMin![i])° | \(weekMax![i])°")
             }
         }
     }

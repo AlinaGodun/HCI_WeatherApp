@@ -13,18 +13,22 @@ class WeatherManager {
     var weatherForDays: [Int: [WeatherState]] = [:]
     var currentState: WeatherState
     
+    static let numberOfDaysInWeek = 7
+    static let arraySize = 6    //size of array containing labels in the view
+    
     init (forStates _weatherStates: [WeatherState]) {
         weatherStates = _weatherStates
         currentState = weatherStates[0]
         loadWeatherForDays()
     }
     
+    //This method analyses array of weatherStates and maps weatherStates to the day the belong to
     func loadWeatherForDays() {
-        var day = getWeekDay(date: currentState.date)
+        var day = getWeekDayNumber(date: currentState.date)
         var dayWeather = [WeatherState]()
 
         for weatherState in weatherStates {
-            let currentDay = getWeekDay(date: weatherState.date)
+            let currentDay = getWeekDayNumber(date: weatherState.date)
             
             if (day != currentDay) {
                 weatherForDays[day] = dayWeather
@@ -39,23 +43,89 @@ class WeatherManager {
         weatherForDays[day] = dayWeather
     }
     
-    func getWeekTemperatures(temperatureType tempType: String) -> [Int] {
-        var result = Array(repeating: 0, count: 7)
+    func getDayTimes(_ day: Int = 0) -> [Int] {
+        let today = getWeekDays()[day]
+        let weatherToday = weatherForDays[today]
+        let calendar = Calendar.current
+        var result = [Int]()
+        
+        for weather in weatherToday! {
+            let hour = calendar.component(.hour, from: weather.date)
+            result.append(hour)
+             if result.count == WeatherManager.arraySize {
+                break
+            }
+        }
+
+        if result.count < WeatherManager.arraySize && day == 0 {
+            let tomorrow = day + 1
+            result.append(contentsOf: getDayTimes(tomorrow))
+        }
+        
+        return result
+    }
+
+    func getDayTemperatures(_ day: Int = 0) -> [Int] {
+        let today = getWeekDays()[day]
+        let weatherToday = weatherForDays[today]
+        var result = [Int]()
+        
+        for weather in weatherToday! {
+            let temperature = Int(round(weather.temperature))
+            result.append(temperature)
+            if result.count == WeatherManager.arraySize {
+                break
+            }
+        }
+        
+        if result.count < WeatherManager.arraySize && day == 0 {
+            let tomorrow = day + 1
+            result.append(contentsOf: getDayTemperatures(tomorrow))
+        }
+        
+        return result
+    }
+    
+    //This method returns array containing numbers of week days starting with today
+    func getWeekDays() -> [Int] {
+        var dayCounter = getWeekDayNumber(date: currentState.date)
+        var result = [Int]()
+        
+        while (result.count < WeatherManager.arraySize && dayCounter < WeatherManager.numberOfDaysInWeek) {
+            result.append(dayCounter)
+            dayCounter += 1
+        }
+        
+        let daysFromBeginning = WeatherManager.arraySize - result.count
+        for i in 0 ..< daysFromBeginning {
+            result.append(i)
+        }
+        return result
+    }
+    
+    //This method returns weekTemperature.
+    //forTemperatureType specifies which temperature to be returned: middle, min or max
+    func getWeekTemperatures(forTemperatureType tempType: TemperatureType) -> [Int] {
+        var result = Array(repeating: 0, count: WeatherManager.numberOfDaysInWeek)
         for day in weatherForDays.keys {
-            let dayTemperatures = get(temperatureType: tempType, forDay: day)
+            let dayTemperatures = get(forTemperatureType: tempType, forDay: day)
             result[day] = getAverage(for: dayTemperatures)
         }
         return adjustDayOrder(for: result)
     }
     
-    func get(temperatureType tempType: String, forDay day: Int) -> [Double] {
+    //Helper methods
+    
+    //This method gets array of temperatures.
+    //forTemperatureType states which temperatures need to be returen: middle, minimum or maximum.
+    //forDay states for which day should it be made
+    func get(forTemperatureType tempType: TemperatureType, forDay day: Int) -> [Double] {
         var result = [Double]()
         func get(forWeatherState ws: WeatherState) -> Double {
             switch (tempType) {
-            case "temp" : return ws.temperature
-            case "tempMin" : return ws.temperatureMin
-            case "tempMax" : return ws.temperatureMax
-            default : return 0.0
+            case .middle : return ws.temperature
+            case .min : return ws.temperatureMin
+            case .max : return ws.temperatureMax
             }
         }
         
@@ -66,6 +136,7 @@ class WeatherManager {
         return result;
     }
     
+    //This method calculates middle temperature
     func getAverage(for array: [Double]) -> Int {
         var sum = 0.0
         for num in array {
@@ -75,6 +146,7 @@ class WeatherManager {
         return Int(round(average))
     }
     
+    //This method adjusts days so that the first element of the array is today
     func adjustDayOrder(for array: [Int]) -> [Int]{
         let days = getWeekDays()
         var result = [Int]()
@@ -84,23 +156,9 @@ class WeatherManager {
         return result
     }
     
-    func getWeekDays() -> [Int] {
-        var dayCounter = getWeekDay(date: currentState.date)
-        var result = [Int]()
-        
-        while (result.count < 6 && dayCounter < 7) {
-            result.append(dayCounter)
-            dayCounter += 1
-        }
-        
-        let daysFromBeginning = 6 - result.count
-        for i in 0 ..< daysFromBeginning {
-            result.append(i)
-        }
-        return result
-    }
-    
-    func getWeekDay(date: Date) -> Int {
+    //This method maps days from the Gregorian calendar (when Sunday has number 1) to
+    //week where Monday is number 0
+    func getWeekDayNumber(date: Date) -> Int {
         let calendar = Calendar.current
         let comp = calendar.dateComponents([.weekday], from: date)
         var dayOfWeek = comp.weekday! - 2

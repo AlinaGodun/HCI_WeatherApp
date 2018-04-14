@@ -1,0 +1,360 @@
+Date: 2017-01-30 18:00:00 +0000 
+Weather description: clear sky
+Temperature: 261.45 
+Minimal temperature: 259.086 
+Maximal temperature:  261.45
+Humidity: 79 
+Cloudiness: 8 
+Wind speed: 4.77
+
+Date: 2017-01-30 21:00:00 +0000 
+Weather description: clear sky
+Temperature: 261.41 
+Minimal temperature: 259.638 
+Maximal temperature:  261.41
+Humidity: 76 
+Cloudiness: 32 
+Wind speed: 4.76
+
+Date: 2017-01-31 00:00:00 +0000 
+Weather description: light snow
+Temperature: 261.76 
+Minimal temperature: 260.571 
+Maximal temperature:  261.76
+Humidity: 84 
+Cloudiness: 68 
+Wind speed: 4.71
+
+Date: 2017-01-31 03:00:00 +0000 
+Weather description: light snow
+Temperature: 261.46 
+Minimal temperature: 260.865 
+Maximal temperature:  261.46
+Humidity: 82 
+Cloudiness: 68 
+Wind speed: 4.46
+
+Date: 2017-01-31 06:00:00 +0000 
+Weather description: light snow
+Temperature: 260.981 
+Minimal temperature: 260.981 
+Maximal temperature:  260.981
+Humidity: 81 
+Cloudiness: 80 
+Wind speed: 4.21
+
+Date: 2017-01-31 09:00:00 +0000 
+Weather description: light snow
+Temperature: 262.308 
+Minimal temperature: 262.308 
+Maximal temperature:  262.308
+Humidity: 91 
+Cloudiness: 88 
+Wind speed: 4.1
+
+Date: 2017-01-31 12:00:00 +0000 
+Weather description: light snow
+Temperature: 263.76 
+Minimal temperature: 263.76 
+Maximal temperature:  263.76
+Humidity: 87 
+Cloudiness: 68 
+Wind speed: 3.87
+
+Date: 2017-01-31 15:00:00 +0000 
+Weather description: light snow
+Temperature: 264.182 
+Minimal temperature: 264.182 
+Maximal temperature:  264.182
+Humidity: 89 
+Cloudiness: 76 
+Wind speed: 3.67
+
+Date: 2017-01-31 18:00:00 +0000 
+Weather description: light snow
+Temperature: 264.67 
+Minimal temperature: 264.67 
+Maximal temperature:  264.67
+Humidity: 86 
+Cloudiness: 88 
+Wind speed: 3.61
+
+Date: 2017-01-31 21:00:00 +0000 
+Weather description: light snow
+Temperature: 265.436 
+Minimal temperature: 265.436 
+Maximal temperature:  265.436
+Humidity: 90 
+Cloudiness: 80 
+Wind speed: 3.67
+
+Date: 2017-02-01 00:00:00 +0000 
+Weather description: light snow
+Temperature: 266.104 
+Minimal temperature: 266.104 
+Maximal temperature:  266.104
+Humidity: 90 
+Cloudiness: 80 
+Wind speed: 3.81
+
+Date: 2017-02-01 03:00:00 +0000 
+Weather description: light snow
+Temperature: 266.904 
+Minimal temperature: 266.904 
+Maximal temperature:  266.904
+Humidity: 89 
+Cloudiness: 76 
+Wind speed: 4.26
+
+Date: 2017-02-01 06:00:00 +0000 
+Weather description: light snow
+Temperature: 268.102 
+Minimal temperature: 268.102 
+Maximal temperature:  268.102
+Humidity: 89 
+Cloudiness: 76 
+Wind speed: 4.4
+
+Date: 2017-02-01 09:00:00 +0000 
+Weather description: light snow
+Temperature: 270.269 
+Minimal temperature: 270.269 
+Maximal temperature:  270.269
+Humidity: 92 
+Cloudiness: 64 
+Wind speed: 4.53
+
+Date: 2017-02-01 12:00:00 +0000 
+Weather description: light snow
+Temperature: 270.585 
+Minimal temperature: 270.585 
+Maximal temperature:  270.585
+Humidity: 89 
+Cloudiness: 76 
+Wind speed: 4.31
+
+Date: 2017-02-01 15:00:00 +0000 
+Weather description: light snow
+Temperature: 269.661 
+Minimal temperature: 269.661 
+Maximal temperature:  269.661
+Humidity: 89 
+Cloudiness: 68 
+Wind speed: 4.91
+
+Date: 2017-02-01 18:00:00 +0000 
+Weather description: light snow
+Temperature: 269.155 
+Minimal temperature: 269.155 
+Maximal temperature:  269.155
+Humidity: 89 
+Cloudiness: 80 
+Wind speed: 5.7
+
+Date: 2017-02-01 21:00:00 +0000 
+Weather description: light snow
+Temperature: 268.056 
+Minimal temperature: 268.056 
+Maximal temperature:  268.056
+Humidity: 89 
+Cloudiness: 68 
+Wind speed: 5.56
+
+Date: 2017-02-02 00:00:00 +0000 
+Weather description: light snow
+Temperature: 265.803 
+Minimal temperature: 265.803 
+Maximal temperature:  265.803
+Humidity: 83 
+Cloudiness: 8 
+Wind speed: 4.8
+
+Date: 2017-02-02 03:00:00 +0000 
+Weather description: clear sky
+Temperature: 263.381 
+Minimal temperature: 263.381 
+Maximal temperature:  263.381
+Humidity: 84 
+Cloudiness: 0 
+Wind speed: 4.2
+
+Date: 2017-02-02 06:00:00 +0000 
+Weather description: clear sky
+Temperature: 261.85 
+Minimal temperature: 261.85 
+Maximal temperature:  261.85
+Humidity: 76 
+Cloudiness: 0 
+Wind speed: 3.81
+
+Date: 2017-02-02 09:00:00 +0000 
+Weather description: clear sky
+Temperature: 263.455 
+Minimal temperature: 263.455 
+Maximal temperature:  263.455
+Humidity: 84 
+Cloudiness: 0 
+Wind speed: 3.06
+
+Date: 2017-02-02 12:00:00 +0000 
+Weather description: clear sky
+Temperature: 264.015 
+Minimal temperature: 264.015 
+Maximal temperature:  264.015
+Humidity: 85 
+Cloudiness: 0 
+Wind speed: 2.52
+
+Date: 2017-02-02 15:00:00 +0000 
+Weather description: clear sky
+Temperature: 259.684 
+Minimal temperature: 259.684 
+Maximal temperature:  259.684
+Humidity: 76 
+Cloudiness: 0 
+Wind speed: 2.48
+
+Date: 2017-02-02 18:00:00 +0000 
+Weather description: few clouds
+Temperature: 255.188 
+Minimal temperature: 255.188 
+Maximal temperature:  255.188
+Humidity: 66 
+Cloudiness: 24 
+Wind speed: 1.23
+
+Date: 2017-02-02 21:00:00 +0000 
+Weather description: scattered clouds
+Temperature: 255.594 
+Minimal temperature: 255.594 
+Maximal temperature:  255.594
+Humidity: 64 
+Cloudiness: 48 
+Wind speed: 1.22
+
+Date: 2017-02-03 00:00:00 +0000 
+Weather description: scattered clouds
+Temperature: 256.96 
+Minimal temperature: 256.96 
+Maximal temperature:  256.96
+Humidity: 66 
+Cloudiness: 44 
+Wind speed: 1.23
+
+Date: 2017-02-03 03:00:00 +0000 
+Weather description: broken clouds
+Temperature: 258.109 
+Minimal temperature: 258.109 
+Maximal temperature:  258.109
+Humidity: 77 
+Cloudiness: 80 
+Wind speed: 1.21
+
+Date: 2017-02-03 06:00:00 +0000 
+Weather description: broken clouds
+Temperature: 259.533 
+Minimal temperature: 259.533 
+Maximal temperature:  259.533
+Humidity: 76 
+Cloudiness: 68 
+Wind speed: 1.21
+
+Date: 2017-02-03 09:00:00 +0000 
+Weather description: broken clouds
+Temperature: 263.438 
+Minimal temperature: 263.438 
+Maximal temperature:  263.438
+Humidity: 84 
+Cloudiness: 56 
+Wind speed: 1.51
+
+Date: 2017-02-03 12:00:00 +0000 
+Weather description: broken clouds
+Temperature: 264.228 
+Minimal temperature: 264.228 
+Maximal temperature:  264.228
+Humidity: 89 
+Cloudiness: 56 
+Wind speed: 1.58
+
+Date: 2017-02-03 15:00:00 +0000 
+Weather description: clear sky
+Temperature: 261.153 
+Minimal temperature: 261.153 
+Maximal temperature:  261.153
+Humidity: 80 
+Cloudiness: 76 
+Wind speed: 1.21
+
+Date: 2017-02-03 18:00:00 +0000 
+Weather description: broken clouds
+Temperature: 258.818 
+Minimal temperature: 258.818 
+Maximal temperature:  258.818
+Humidity: 73 
+Cloudiness: 64 
+Wind speed: 1.21
+
+Date: 2017-02-03 21:00:00 +0000 
+Weather description: scattered clouds
+Temperature: 257.218 
+Minimal temperature: 257.218 
+Maximal temperature:  257.218
+Humidity: 65 
+Cloudiness: 44 
+Wind speed: 1.17
+
+Date: 2017-02-04 00:00:00 +0000 
+Weather description: broken clouds
+Temperature: 255.782 
+Minimal temperature: 255.782 
+Maximal temperature:  255.782
+Humidity: 73 
+Cloudiness: 56 
+Wind speed: 1.21
+
+Date: 2017-02-04 03:00:00 +0000 
+Weather description: clear sky
+Temperature: 254.819 
+Minimal temperature: 254.819 
+Maximal temperature:  254.819
+Humidity: 68 
+Cloudiness: 44 
+Wind speed: 1.22
+
+Date: 2017-02-04 06:00:00 +0000 
+Weather description: light snow
+Temperature: 257.488 
+Minimal temperature: 257.488 
+Maximal temperature:  257.488
+Humidity: 63 
+Cloudiness: 68 
+Wind speed: 2.13
+
+Date: 2017-02-04 09:00:00 +0000 
+Weather description: light snow
+Temperature: 259.827 
+Minimal temperature: 259.827 
+Maximal temperature:  259.827
+Humidity: 90 
+Cloudiness: 68 
+Wind speed: 2.07
+
+Date: 2017-02-04 12:00:00 +0000 
+Weather description: clear sky
+Temperature: 261.256 
+Minimal temperature: 261.256 
+Maximal temperature:  261.256
+Humidity: 86 
+Cloudiness: 76 
+Wind speed: 2.32
+
+Date: 2017-02-04 15:00:00 +0000 
+Weather description: broken clouds
+Temperature: 260.26 
+Minimal temperature: 260.26 
+Maximal temperature:  260.26
+Humidity: 86 
+Cloudiness: 56 
+Wind speed: 2.47
+
