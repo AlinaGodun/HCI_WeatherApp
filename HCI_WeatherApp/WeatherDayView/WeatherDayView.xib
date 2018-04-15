@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeatherDayView" customModule="HCI_WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="123"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xn1-qN-uZ3">
+                    <rect key="frame" x="2" y="5" width="46" height="19.5"/>
+                    <viewLayoutGuide key="safeArea" id="iyE-BG-Zzi"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtQ-lh-Syd">
+                    <rect key="frame" x="2" y="29.5" width="46" height="22"/>
+                    <viewLayoutGuide key="safeArea" id="59R-Ig-66X"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuN-4u-4wb">
+                    <rect key="frame" x="2" y="56.5" width="46" height="19.5"/>
+                    <viewLayoutGuide key="safeArea" id="I4M-XL-ehQ"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHW-cc-GbI">
+                    <rect key="frame" x="2" y="81" width="46" height="22"/>
+                    <viewLayoutGuide key="safeArea" id="m5W-dI-Gbe"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12° | 21° " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzQ-Ef-gTm">
+                    <rect key="frame" x="2" y="108" width="46" height="14"/>
+                    <viewLayoutGuide key="safeArea" id="avS-Nw-IwD"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rzQ-Ef-gTm" firstAttribute="top" secondItem="tHW-cc-GbI" secondAttribute="bottom" constant="5" id="1JS-jo-b2u"/>
+                <constraint firstItem="rzQ-Ef-gTm" firstAttribute="leading" secondItem="Xn1-qN-uZ3" secondAttribute="leading" id="1dA-4D-Dr0"/>
+                <constraint firstItem="KuN-4u-4wb" firstAttribute="leading" secondItem="Xn1-qN-uZ3" secondAttribute="leading" id="3Q0-wp-y8m"/>
+                <constraint firstItem="KtQ-lh-Syd" firstAttribute="trailing" secondItem="Xn1-qN-uZ3" secondAttribute="trailing" id="5g8-QT-aWU"/>
+                <constraint firstItem="KuN-4u-4wb" firstAttribute="trailing" secondItem="Xn1-qN-uZ3" secondAttribute="trailing" id="TkE-pJ-lEQ"/>
+                <constraint firstItem="tHW-cc-GbI" firstAttribute="top" secondItem="KuN-4u-4wb" secondAttribute="bottom" constant="5" id="Vim-sk-EFa"/>
+                <constraint firstItem="tHW-cc-GbI" firstAttribute="trailing" secondItem="Xn1-qN-uZ3" secondAttribute="trailing" id="Vk1-e0-xuN"/>
+                <constraint firstItem="KtQ-lh-Syd" firstAttribute="top" secondItem="Xn1-qN-uZ3" secondAttribute="bottom" constant="5" id="ZVh-hh-xfj"/>
+                <constraint firstItem="Xn1-qN-uZ3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="d8c-D9-G1V"/>
+                <constraint firstItem="tHW-cc-GbI" firstAttribute="leading" secondItem="Xn1-qN-uZ3" secondAttribute="leading" id="jYu-ny-4al"/>
+                <constraint firstItem="KtQ-lh-Syd" firstAttribute="leading" secondItem="Xn1-qN-uZ3" secondAttribute="leading" id="koq-ZE-X9X"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rzQ-Ef-gTm" secondAttribute="bottom" constant="5" id="oUT-WL-jhj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xn1-qN-uZ3" secondAttribute="trailing" constant="2" id="oVL-u9-r4q"/>
+                <constraint firstItem="rzQ-Ef-gTm" firstAttribute="trailing" secondItem="Xn1-qN-uZ3" secondAttribute="trailing" id="s1k-ZI-hmH"/>
+                <constraint firstItem="KuN-4u-4wb" firstAttribute="top" secondItem="KtQ-lh-Syd" secondAttribute="bottom" constant="5" id="stb-mh-akS"/>
+                <constraint firstItem="Xn1-qN-uZ3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="2" id="sxV-yt-KDt"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="timeLabel" destination="Xn1-qN-uZ3" id="fCL-N8-7CB"/>
+                <outlet property="todayTemperature" destination="KtQ-lh-Syd" id="7AK-wi-fCA"/>
+                <outlet property="weekDayLabel" destination="KuN-4u-4wb" id="jVw-FB-zOn"/>
+                <outlet property="weekDayMinMax" destination="rzQ-Ef-gTm" id="QyP-Wv-8kv"/>
+                <outlet property="weekDayTemperature" destination="tHW-cc-GbI" id="sff-9G-ZSd"/>
+            </connections>
+            <point key="canvasLocation" x="-4" y="-395.5"/>
+        </view>
+    </objects>
+</document>
